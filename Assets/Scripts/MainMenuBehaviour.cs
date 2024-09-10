@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuBehaviour : MonoBehaviour
 {
-    UIManager uiManager;
+   
     // Start is called before the first frame update
     void Start()
     {
-        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+       
     }
 
     // Update is called once per frame
