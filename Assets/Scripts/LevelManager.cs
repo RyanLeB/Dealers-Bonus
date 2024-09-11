@@ -55,6 +55,12 @@ public class LevelManager : MonoBehaviour
         PreviousLevel = levelList[levelList.IndexOf(currentLevel) - 1];
         SceneManager.LoadScene(PreviousLevel);
     }
+    public void LoadLevel(string levelName)
+    {
+        //Load a specific level
+        levelName = currentLevel;
+        SceneManager.LoadScene(levelName);
+    }
     public void Quit()
     {
         //Quit the game

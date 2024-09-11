@@ -18,6 +18,10 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         UiElements = new List<GameObject>();
+        foreach(Transform child in transform)
+        {
+            UiElements.Add(child.gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -26,10 +30,24 @@ public class UIManager : MonoBehaviour
         switch(gameState)
         {
             case GameState.MainMenu:
+                UiElements[0].SetActive(true);
+                for(int i = 1; i < UiElements.Count; i++)
+                {
+                    UiElements[i].SetActive(false);
+                }
                 break;
             case GameState.Game:
+                for(int i = 0; i < UiElements.Count; i++)
+                {
+                    UiElements[i].SetActive(false);
+                }
                 break;
             case GameState.credits:
+                UiElements[0].SetActive(false);
+                for(int i = 1; i < UiElements.Count; i++)
+                {
+                    UiElements[i].SetActive(true);
+                }
                 break;
             case GameState.Pause:
                 break;

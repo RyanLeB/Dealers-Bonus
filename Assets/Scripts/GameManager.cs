@@ -11,12 +11,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        uIManager = FindObjectOfType<UIManager>();
-        levelManager = FindObjectOfType<LevelManager>();    
-        if(uIManager == null)
-        {
-            Debug.LogError("UIManager is null");
-        }
         if(instance == null)
         {
             DontDestroyOnLoad(this.gameObject);
@@ -24,6 +18,12 @@ public class GameManager : MonoBehaviour
         else if(instance != this)
         {
             Destroy(gameObject);
+        }
+        uIManager = FindObjectOfType<UIManager>();
+        levelManager = FindObjectOfType<LevelManager>();    
+        if(uIManager == null)
+        {
+            Debug.LogError("UIManager is null");
         }
     }
 
