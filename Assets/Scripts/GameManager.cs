@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {   
-    public enum GameState { Game,Pause,MainMenu,Credits, GameOver};
     public UIManager uIManager;
     public LevelManager levelManager;
     public static GameManager instance;
     public bool IsPaused;
-
+    public bool IsCredits;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +21,6 @@ public class GameManager : MonoBehaviour
             GameObject.DontDestroyOnLoad(this.gameObject);
             instance = this;
         }
-
         uIManager = FindObjectOfType<UIManager>();
         levelManager = FindObjectOfType<LevelManager>();    
         if(uIManager == null)
@@ -41,20 +39,41 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape) && levelManager.currentLevel != "MainMenu" && IsPaused == false)
         {
-            IsPaused = true;
-            uIManager.gameState = UIManager.GameState.Pause;
+            Pause();
             Debug.Log("Pause");
         }
         else if(Input.GetKeyDown(KeyCode.Escape) && levelManager.currentLevel != "MainMenu" && IsPaused == true)
         {
-            IsPaused = false;
-            uIManager.gameState = UIManager.GameState.Game;
+            Resume();
             Debug.Log("Game");
         }
+        else if(Input.GetKeyDown(KeyCode.Escape) && IsCredits == true)
+        {
+            IsCredits = false;
+        }
+    }
+    void Pause()
+    {
+        IsPaused = true;
+        uIManager.gameState = UIManager.GameState.Pause;
+    }
+    public void Resume()
+    {
+        IsPaused = false;
+        uIManager.gameState = UIManager.GameState.Game;
+    }
+    public void OnCreditsButtonClicked()
+    {
+        IsCredits = true;
+        ShowCredits();
+    }
+    public void Creditsback()
+    {
+        IsCredits = false;
     }
     void UISelection()
     {
-        if(levelManager.currentLevel == "MainMenu")
+        if(levelManager.currentLevel == "MainMenu" && IsCredits == false)
         {
             uIManager.gameState = UIManager.GameState.MainMenu;
             IsPaused = false;
@@ -63,22 +82,25 @@ public class GameManager : MonoBehaviour
         {
             if(IsPaused == true)
             {
-                uIManager.gameState = UIManager.GameState.Pause;
+               Pause();
             }
             else if(IsPaused == false)
             {
-                uIManager.gameState = UIManager.GameState.Game;
+                Resume();
             }
-        }
-        else if(levelManager.currentLevel == "Credits")
-        {
-            uIManager.gameState = UIManager.GameState.credits;
         }
         else if(levelManager.currentLevel == "GameOver")
         {
             uIManager.gameState = UIManager.GameState.GameOver;
             IsPaused = false;
         }
-
+    }
+    void ShowCredits()
+    {
+        if(IsCredits == true)
+        {
+            levelManager.currentLevel = "Credits";
+            uIManager.gameState = UIManager.GameState.credits;
+        }
     }
 }

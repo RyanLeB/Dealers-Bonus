@@ -44,10 +44,8 @@ public class UIManager : MonoBehaviour
                 break;
             case GameState.credits:
                 UiElements[0].SetActive(false);
-                for(int i = 0; i < UiElements.Count; i++)
-                {
-                    UiElements[i].SetActive(true);
-                }
+                UiElements[1].SetActive(true);
+                UiElements[2].SetActive(false);
                 break;
             case GameState.Pause:
                 for(int i = 0; i < UiElements.Count; i++)
