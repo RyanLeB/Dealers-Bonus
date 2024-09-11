@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DealerAI : MonoBehaviour
 {
-    // Want the dealer to draw cards until they have 17 or more, and after each turn the Player will have the option to draw a card or stay
+    public BlackJackHands playerHand;
+    public BlackJackHands dealerHand;
     
     // Start is called before the first frame update
     void Start()
@@ -38,5 +39,16 @@ public class DealerAI : MonoBehaviour
         {
             Debug.Log("Dealer's hand is " + dealerHandValue + ". Dealer stays.");
         }
+        
+        // After the dealer's turn, it is the player's turn
+        PlayerTurn();
+    }
+    
+    public void PlayerTurn()
+    {
+        Debug.Log("Player's Turn");
+        
+        // Get the Player's current hand value
+        int playerHandValue = GetComponent<Hand>().getHandValue();
     }
 }
