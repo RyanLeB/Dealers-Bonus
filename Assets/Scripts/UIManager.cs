@@ -30,11 +30,11 @@ public class UIManager : MonoBehaviour
         switch(gameState)
         {
             case GameState.MainMenu:
-                UiElements[0].SetActive(true);
-                for(int i = 1; i < UiElements.Count; i++)
+                for(int i = 0; i < UiElements.Count; i++)
                 {
                     UiElements[i].SetActive(false);
                 }
+                UiElements[0].SetActive(true);
                 break;
             case GameState.Game:
                 for(int i = 0; i < UiElements.Count; i++)
@@ -44,12 +44,17 @@ public class UIManager : MonoBehaviour
                 break;
             case GameState.credits:
                 UiElements[0].SetActive(false);
-                for(int i = 1; i < UiElements.Count; i++)
+                for(int i = 0; i < UiElements.Count; i++)
                 {
                     UiElements[i].SetActive(true);
                 }
                 break;
             case GameState.Pause:
+                for(int i = 0; i < UiElements.Count; i++)
+                {
+                    UiElements[i].SetActive(false);
+                }
+                UiElements[2].SetActive(true);
                 break;
             case GameState.GameOver:
                 break;

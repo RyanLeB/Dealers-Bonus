@@ -73,19 +73,19 @@ public class BlackJackHands : MonoBehaviour
         }
     }
 
-    public void ShuffleCards()
-    {
-        // Shuffles the cards with an loop
-        for (int i = cards.Count - 1; i > 0; i--)
-        {
-            int j = Random.Range(0, i + 1); // Random
-            Sprite face = cards[i];
-            cards[i] = cards[j];
-            cards[j] = face;
+    //public void ShuffleCards()
+    //{
+    //    // Shuffles the cards with an loop
+    //    for (int i = cards.Count - 1; i > 0; i--)
+    //    {
+    //        int j = Random.Range(0, i + 1); // Random
+    //        Sprite face = cards[i];
+    //        cards[i] = cards[j];
+    //        cards[j] = face;
             
-            int value = GetCardValue(cards[i]);
-            GetCardValue(i) = GetCardValue(j);
-            GetCardValue(j) = value;
-        }
-    }
+    //        int value = GetCardValue(cards[i]);
+    //        GetCardValue(i) = GetCardValue(j);
+    //        GetCardValue(j) = value;
+    //    }
+    //}
 }
