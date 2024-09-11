@@ -24,14 +24,14 @@ public class DealerAI : MonoBehaviour
         Debug.Log("Dealer's Turn");
 
         // Get the Dealer's current hand value
-        int dealerHandValue = GetComponent<Hand>().getHandValue();
+        int dealerHandValue = GetComponent<BlackJackHands>().GetHandValue();
 
         // If the Dealer's hand is less than 17, draw a card
         while (dealerHandValue < 17)
         {
             // Draw a card
-            GetComponent<Deck>().DrawCard(GetComponent<Hand>());
-            dealerHandValue = GetComponent<Hand>().getHandValue();
+            GetComponent<CardDeck>().DrawCard(GetComponent<BlackJackHands>());
+            dealerHandValue = GetComponent<BlackJackHands>().GetHandValue();
         }
 
         // If the Dealer's hand is 17 or more, stay
@@ -49,6 +49,6 @@ public class DealerAI : MonoBehaviour
         Debug.Log("Player's Turn");
         
         // Get the Player's current hand value
-        int playerHandValue = GetComponent<Hand>().getHandValue();
+        int playerHandValue = GetComponent<BlackJackHands>().GetHandValue();
     }
 }
