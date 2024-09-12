@@ -538,9 +538,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a700ad48ac9599b43a7a4048f6e582e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cards: []
-  handValue: 0
-  cardParent: {fileID: 1567369929}
+  playerCards: []
+  dealerCards: []
+  playerValue: 0
+  dealerValue: 0
+  playerCardParent: {fileID: 1567369929}
+  dealerCardParent: {fileID: 633173641}
   cardPrefab: {fileID: 892600587}
 --- !u!114 &322368135
 MonoBehaviour:
@@ -555,19 +558,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardSprites:
-  - {fileID: 2030868754, guid: 48c813cfa9bc1a3409643e00e301336f, type: 3}
-  - {fileID: 1924502583, guid: 48c813cfa9bc1a3409643e00e301336f, type: 3}
-  - {fileID: -995281201, guid: 48c813cfa9bc1a3409643e00e301336f, type: 3}
-  - {fileID: -77137545, guid: 48c813cfa9bc1a3409643e00e301336f, type: 3}
-  - {fileID: -2030720944, guid: 48c813cfa9bc1a3409643e00e301336f, type: 3}
-  - {fileID: -367691071, guid: 48c813cfa9bc1a3409643e00e301336f, type: 3}
-  - {fileID: 709361796, guid: 48c813cfa9bc1a3409643e00e301336f, type: 3}
-  - {fileID: -2057848734, guid: 48c813cfa9bc1a3409643e00e301336f, type: 3}
-  - {fileID: 517291840, guid: 48c813cfa9bc1a3409643e00e301336f, type: 3}
-  - {fileID: 162161506, guid: 48c813cfa9bc1a3409643e00e301336f, type: 3}
-  - {fileID: 1592803941, guid: 48c813cfa9bc1a3409643e00e301336f, type: 3}
-  - {fileID: -1228186900, guid: 48c813cfa9bc1a3409643e00e301336f, type: 3}
-  - {fileID: -1289399819, guid: 48c813cfa9bc1a3409643e00e301336f, type: 3}
+  - {fileID: 21300000, guid: 7b3e8255becd06642adc82eb6abd66e5, type: 2}
+  - {fileID: 21300000, guid: da67b91c6d8a0b54aa70df104a069b1c, type: 2}
+  - {fileID: 21300000, guid: 69ebedb15241b3f48b16363203bf3fac, type: 2}
+  - {fileID: 21300000, guid: 1851ad30cd483aa458f8e3f094d94389, type: 2}
+  - {fileID: 21300000, guid: 91983fd9884f62e4783cfbcf3b91edd1, type: 2}
+  - {fileID: 21300000, guid: d5ec771869a15834ebc9e617a33e4851, type: 2}
+  - {fileID: 21300000, guid: bac5ca438964ee446bef8f1d1b6f2efa, type: 2}
+  - {fileID: 21300000, guid: d631b1481fb6aee4188b50b363b653f4, type: 2}
+  - {fileID: 21300000, guid: 85ef69ac4813dc04394306a0a2f16140, type: 2}
+  - {fileID: 21300000, guid: 0b17a89a307da764dba20a6ca3c59b96, type: 2}
 --- !u!1 &448713067
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,9 +786,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 322368132}
         m_TargetAssemblyTypeName: DealerAI, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: PlayerStand
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

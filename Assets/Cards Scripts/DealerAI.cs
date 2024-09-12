@@ -9,6 +9,7 @@ public class DealerAI : MonoBehaviour
     public BlackJackHands playerHand;
     public Transform cardOffsetDealer;
     public Transform cardOffsetPlayer;
+    private bool playerHasStood = false;
 
     void Start()
     {
@@ -62,6 +63,12 @@ public class DealerAI : MonoBehaviour
 
     public void PlayerHit()
     {
+        if (playerHasStood)
+        {
+            Debug.Log("Player has already stood and cannot draw more cards.");
+            return;
+        }
+
         Sprite card = deck.DrawCard();
         playerHand.AddCard(card, true); // true indicates it's the player's card
         Debug.Log("Player draws a card.");
@@ -71,6 +78,8 @@ public class DealerAI : MonoBehaviour
     public void PlayerStand()
     {
         Debug.Log("Player stands.");
+        Debug.Log(playerHasStood);
+        playerHasStood = true;
         DealerTurn();
     }
 }
