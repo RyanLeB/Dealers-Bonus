@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: b5ab91c894c8606408bee4699569d306
   - enabled: 1
+    path: Assets/Scenes/Noah's Testing area.unity
+    guid: 47ae66199e0ccdb40bce7ef3acbd976a
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 1dacdcef6a2639941837de36dd415a0e
   - enabled: 1
