@@ -6,10 +6,10 @@ Sprite:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: cards_12
+  m_Name: 6
   m_Rect:
     serializedVersion: 2
-    x: 800
+    x: 352
     y: 305
     width: 49
     height: 65
@@ -22,7 +22,7 @@ Sprite:
   m_AtlasName: 
   m_PackingTag: 
   m_RenderDataKey:
-    6d80680358b056b40879842bab4dbbbf: -1542368046
+    6d80680358b056b40879842bab4dbbbf: -1737543095
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
@@ -103,18 +103,18 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 48e17abe6666a63e0000000048e17a3e6666a6be0000000048e17a3e6666a63e0000000048e17abe6666a6be000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 48e17abe6666a63e0000000048e17a3e6666a6be0000000048e17a3e6666a63e0000000048e17abe6666a6be000000004eeabe3ea606763fd57dd93e21ce4a3fd57dd93ea606763f4eeabe3e21ce4a3f
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
-      x: 800
+      x: 352
       y: 305
       width: 49
       height: 65
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 64
-    uvTransform: {x: 100, y: 824.5, z: 100, w: 337.5}
+    uvTransform: {x: 100, y: 376.5, z: 100, w: 337.5}
     downscaleMultiplier: 1
   m_AtlasRD:
     serializedVersion: 3
@@ -194,18 +194,18 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 48e17abe6666a63e0000000048e17a3e6666a6be0000000048e17a3e6666a63e0000000048e17abe6666a6be000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 48e17abe6666a63e0000000048e17a3e6666a6be0000000048e17a3e6666a63e0000000048e17abe6666a6be000000004eeabe3ea606763fd57dd93e21ce4a3fd57dd93ea606763f4eeabe3e21ce4a3f
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
-      x: 800
+      x: 352
       y: 305
       width: 49
       height: 65
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 64
-    uvTransform: {x: 100, y: 824.5, z: 100, w: 337.5}
+    uvTransform: {x: 100, y: 376.5, z: 100, w: 337.5}
     downscaleMultiplier: 1
   m_PhysicsShape:
   - - {x: -0.24499999, y: 0.325}
@@ -213,4 +213,4 @@ Sprite:
     - {x: 0.24499999, y: -0.325}
     - {x: 0.24499999, y: 0.325}
   m_Bones: []
-  m_SpriteID: f8a7c744fdd90884cab8efb121bf098e
+  m_SpriteID: a4bb35974a3380a45af659de6c036647

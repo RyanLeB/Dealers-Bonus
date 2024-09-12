@@ -7,6 +7,8 @@ public class DealerAI : MonoBehaviour
     public CardDeck deck;
     public BlackJackHands dealerHand;
     public BlackJackHands playerHand;
+    public Transform cardOffsetDealer;
+    public Transform cardOffsetPlayer;
 
     void Start()
     {
@@ -18,17 +20,38 @@ public class DealerAI : MonoBehaviour
     {
         Debug.Log("Dealer's Turn");
 
-        while (dealerHand.GetHandValue() < 17)
+        if (deck == null)
         {
-            Sprite card = deck.DrawCard();
-            dealerHand.AddCard(card);
-            Debug.Log("Dealer draws a card.");
+            Debug.LogError("Deck is not initialized.");
+            return;
         }
 
-        if (dealerHand.GetHandValue() >= 17)
+        if (dealerHand == null)
         {
-            Debug.Log("Dealer's hand is " + dealerHand.GetHandValue() + ". Dealer stays.");
+            Debug.LogError("Dealer hand is not initialized.");
+            return;
         }
+
+        while (dealerHand.GetDealerValue() < 17)
+        {
+            Sprite card = deck.DrawCard();
+            if (card == null)
+            {
+                Debug.LogError("No more cards in the deck.");
+                break;
+            }
+
+            dealerHand.AddCard(card, false); // false indicates it's the dealer's card
+            Debug.Log("Dealer draws a card. Hand value: " + dealerHand.GetDealerValue());
+
+            // Safety check to prevent infinite loop
+            if (dealerHand.GetDealerValue() >= 17)
+            {
+                break;
+            }
+        }
+
+        Debug.Log("Dealer's hand is " + dealerHand.GetDealerValue() + ". Dealer stays.");
     }
 
     public void PlayerTurn()
@@ -40,7 +63,7 @@ public class DealerAI : MonoBehaviour
     public void PlayerHit()
     {
         Sprite card = deck.DrawCard();
-        playerHand.AddCard(card);
+        playerHand.AddCard(card, true); // true indicates it's the player's card
         Debug.Log("Player draws a card.");
         // Continue player's turn
     }
