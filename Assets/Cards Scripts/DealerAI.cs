@@ -10,6 +10,7 @@ public class DealerAI : MonoBehaviour
     public Transform cardOffsetDealer;
     public Transform cardOffsetPlayer;
     private bool playerHasStood = false;
+    public AudioSource cardFlip;
 
     void Start()
     {
@@ -69,6 +70,7 @@ public class DealerAI : MonoBehaviour
             return;
         }
 
+        cardFlip.Play();
         Sprite card = deck.DrawCard();
         playerHand.AddCard(card, true);
         Debug.Log("Player draws a card.");
@@ -76,6 +78,7 @@ public class DealerAI : MonoBehaviour
 
     public void PlayerStand()
     {
+        cardFlip.Play();
         Debug.Log("Player stands.");
         Debug.Log(playerHasStood);
         playerHasStood = true;
