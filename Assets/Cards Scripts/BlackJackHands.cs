@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +14,15 @@ public class BlackJackHands : MonoBehaviour
     public Transform playerCardParent;
     public Transform dealerCardParent;
     public GameObject cardPrefab;
+    public TextMeshProUGUI playerValueText;
+    public TextMeshProUGUI dealerValueText;
+
+
+    public void FixedUpdate()
+    {
+        GetPlayerValue();
+        GetDealerValue();
+    }
 
     public void AddCard(Sprite card, bool isPlayer)
     {
@@ -33,11 +44,13 @@ public class BlackJackHands : MonoBehaviour
 
     public int GetPlayerValue()
     {
+        playerValueText.text = $"Player Value: {playerValue}";
         return playerValue;
     }
 
     public int GetDealerValue()
     {
+        dealerValueText.text = $"Dealer Value: {dealerValue}";
         return dealerValue;
     }
 
