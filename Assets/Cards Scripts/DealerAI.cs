@@ -42,14 +42,14 @@ public class DealerAI : MonoBehaviour
                 break;
             }
 
-            dealerHand.AddCard(card, false); // false indicates it's the dealer's card
+            dealerHand.AddCard(card, false);
             Debug.Log("Dealer draws a card. Hand value: " + dealerHand.GetDealerValue());
-
-            // Safety check to prevent infinite loop
+            
             if (dealerHand.GetDealerValue() >= 17)
             {
                 break;
             }
+            CheckWin();
         }
 
         Debug.Log("Dealer's hand is " + dealerHand.GetDealerValue() + ". Dealer stays.");
@@ -70,9 +70,8 @@ public class DealerAI : MonoBehaviour
         }
 
         Sprite card = deck.DrawCard();
-        playerHand.AddCard(card, true); // true indicates it's the player's card
+        playerHand.AddCard(card, true);
         Debug.Log("Player draws a card.");
-        // Continue player's turn
     }
 
     public void PlayerStand()
@@ -81,5 +80,32 @@ public class DealerAI : MonoBehaviour
         Debug.Log(playerHasStood);
         playerHasStood = true;
         DealerTurn();
+    }
+
+    public void CheckWin()
+    {
+        int playerValue = playerHand.GetPlayerValue();
+        int dealerValue = dealerHand.GetDealerValue();
+        
+        if (playerValue > 21)
+        {
+            Debug.Log("Player busts. Dealer wins.");
+        }
+        else if (dealerValue > 21)
+        {
+            Debug.Log("Dealer busts. Player wins.");
+        }
+        else if (playerValue > dealerValue)
+        {
+            Debug.Log("Player wins.");
+        }
+        else if (dealerValue > playerValue)
+        {
+            Debug.Log("Dealer wins.");
+        }
+        else
+        {
+            Debug.Log("It's a tie.");
+        }
     }
 }

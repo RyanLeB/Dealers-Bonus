@@ -44,16 +44,18 @@ public class BlackJackHands : MonoBehaviour
     private int GetCardValue(Sprite card)
     {
         string cardName = card.name.ToLower();
+        System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"\d+");
+        System.Text.RegularExpressions.Match match = regex.Match(cardName);
 
-        if (int.TryParse(cardName, out int value))
+        if (match.Success)
         {
-            return value; // Number cards (2-10)
+            return int.Parse(match.Value); // Number cards (2-10)
         }
-        else if (cardName == "jack" || cardName == "queen" || cardName == "king")
+        else if (cardName.Contains("jack") || cardName.Contains("queen") || cardName.Contains("king"))
         {
             return 10; // Face cards
         }
-        else if (cardName == "ace")
+        else if (cardName.Contains("ace"))
         {
             return 11; // Aces initially worth 11
         }
