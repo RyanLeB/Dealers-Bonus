@@ -1,56 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BlackJackHands : MonoBehaviour
 {
-    // Deck and player and dealer hands, not turns
     public List<Sprite> cards = new List<Sprite>();
-    public int handValue = 0;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Debug.Log("Starting BlackJackHands");
-    }
+    public int handValue;
+    public Transform cardParent; // Parent transform to hold card images
+    public GameObject cardPrefab; // Prefab for card images
 
     public void AddCard(Sprite card)
     {
         cards.Add(card);
         handValue += GetCardValue(card);
+        AdjustForAces();
+        DisplayCard(card);
     }
-    
+
     public int GetHandValue()
     {
         return handValue;
     }
-    
+
     private int GetCardValue(Sprite card)
     {
-        string cardName = card.name; // Get the name of the card
-        string[] cardNameParts = cardName.Split('_'); // Split the card name by the underscore character
-        string rank = cardNameParts[0]; // The rank of the card is the first part of the card name
-        
-        // If the rank is a number, return the integer value of the rank
-        if (int.TryParse(rank, out int rankValue))
+        string cardName = card.name; // Assuming the card name contains its rank, e.g., "2_of_hearts", "ace_of_spades"
+        string[] cardParts = cardName.Split('_');
+        string rank = cardParts[0];
+
+        if (int.TryParse(rank, out int value))
         {
-            return rankValue;
+            return value; // Number cards (2-10)
         }
         else if (rank == "jack" || rank == "queen" || rank == "king")
         {
-            return 10;
+            return 10; // Face cards
         }
         else if (rank == "ace")
         {
-            return 11;
+            return 11; // Aces initially worth 11
         }
-        else
-        {
-            return 0;
-        }
+
+        return 0; // Default case, should not happen
     }
-    
-    public void AdjustAceValue()
+
+    public void AdjustForAces()
     {
         int aceCount = 0;
         handValue = 0;
@@ -62,30 +57,19 @@ public class BlackJackHands : MonoBehaviour
             {
                 aceCount++;
             }
-            
             handValue += cardValue;
         }
-        
+
         while (handValue > 21 && aceCount > 0)
         {
-            handValue -= 10;
+            handValue -= 10; // Convert an Ace from 11 to 1
             aceCount--;
         }
     }
 
-    //public void ShuffleCards()
-    //{
-    //    // Shuffles the cards with an loop
-    //    for (int i = cards.Count - 1; i > 0; i--)
-    //    {
-    //        int j = Random.Range(0, i + 1); // Random
-    //        Sprite face = cards[i];
-    //        cards[i] = cards[j];
-    //        cards[j] = face;
-            
-    //        int value = GetCardValue(cards[i]);
-    //        GetCardValue(i) = GetCardValue(j);
-    //        GetCardValue(j) = value;
-    //    }
-    //}
+    private void DisplayCard(Sprite card)
+    {
+        GameObject cardGO = Instantiate(cardPrefab, cardParent);
+        cardGO.GetComponent<Image>().sprite = card;
+    }
 }
