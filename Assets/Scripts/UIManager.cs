@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
         Game,
         credits,
         Pause,
-        GameOver
+        Controls,
     }
      public GameState gameState;
      public List<GameObject> UiElements;
@@ -54,7 +54,11 @@ public class UIManager : MonoBehaviour
                 }
                 UiElements[2].SetActive(true);
                 break;
-            case GameState.GameOver:
+            case GameState.Controls:
+                UiElements[0].SetActive(false);
+                UiElements[1].SetActive(false);
+                UiElements[2].SetActive(false);
+                UiElements[3].SetActive(true);
                 break;
         }
     }

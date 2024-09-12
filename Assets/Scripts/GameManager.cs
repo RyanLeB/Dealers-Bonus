@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public bool IsPaused;
     public bool IsCredits;
+    public bool IsControls;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,15 +71,21 @@ public class GameManager : MonoBehaviour
     public void Creditsback()
     {
         IsCredits = false;
+        IsControls = false;
+    }
+    public void OnControlsButtonClicked()
+    {
+        IsControls = true;
+        uIManager.gameState = UIManager.GameState.Controls;
     }
     void UISelection()
     {
-        if(levelManager.currentLevel == "MainMenu" && IsCredits == false)
+        if(levelManager.currentLevel == "MainMenu" && IsCredits == false && IsControls == false)
         {
             uIManager.gameState = UIManager.GameState.MainMenu;
             IsPaused = false;
         }
-        else if(levelManager.currentLevel == "GameScene")
+        else if(levelManager.currentLevel == "Noah's Testing area")
         {
             if(IsPaused == true)
             {
@@ -88,11 +95,6 @@ public class GameManager : MonoBehaviour
             {
                 Resume();
             }
-        }
-        else if(levelManager.currentLevel == "GameOver")
-        {
-            uIManager.gameState = UIManager.GameState.GameOver;
-            IsPaused = false;
         }
     }
     void ShowCredits()
