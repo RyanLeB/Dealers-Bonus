@@ -15,7 +15,9 @@ public class BlackJackHands : MonoBehaviour
     public Transform dealerCardParent;
     public GameObject cardPrefab;
     public TextMeshProUGUI playerValueText;
+    public TextMeshProUGUI playerValueTextShadow;
     public TextMeshProUGUI dealerValueText;
+    public TextMeshProUGUI dealerValueTextShadow;
 
 
     public void FixedUpdate()
@@ -44,13 +46,15 @@ public class BlackJackHands : MonoBehaviour
 
     public int GetPlayerValue()
     {
-        playerValueText.text = $"Player Value: {playerValue}";
+        playerValueText.text = $"Current Hand: {playerValue}";
+        playerValueTextShadow.text = $"Current Hand: {playerValue}";
         return playerValue;
     }
 
     public int GetDealerValue()
     {
-        dealerValueText.text = $"Dealer Value: {dealerValue}";
+        dealerValueText.text = $"Dealer's Hand: {dealerValue}";
+        dealerValueTextShadow.text = $"Dealer's Hand: {dealerValue}";
         return dealerValue;
     }
 
