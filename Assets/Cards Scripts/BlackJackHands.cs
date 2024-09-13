@@ -121,4 +121,20 @@ public class BlackJackHands : MonoBehaviour
         float xOffset = cardIndex * 50f; // Offset each card by 50 pixels
         cardGO.transform.localPosition = new Vector3(xOffset, 0, 0); // Sets the cards to the same position of cardParent
     }
+    
+    public void ClearHands()
+    {
+        playerCards.Clear();
+        dealerCards.Clear();
+        playerValue = 0;
+        dealerValue = 0;
+        foreach (Transform child in playerCardParent)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in dealerCardParent)
+        {
+            Destroy(child.gameObject);
+        }
+    }
 }

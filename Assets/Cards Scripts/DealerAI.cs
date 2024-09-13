@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DealerAI : MonoBehaviour
@@ -10,11 +11,22 @@ public class DealerAI : MonoBehaviour
     public Transform cardOffsetDealer;
     public Transform cardOffsetPlayer;
     private bool playerHasStood = false;
+    public MoneyManager moneyManager;
     public AudioSource cardFlip;
+    
+    public GameObject winScreen;
+    public TextMeshProUGUI winText;
+    public GameObject loseScreen;
+    public TextMeshProUGUI loseText;
+    public GameObject tieScreen;
+    public TextMeshProUGUI tieText;
 
     void Start()
     {
         Debug.Log("Starting Dealer AI");
+        winScreen.SetActive(false);
+        loseScreen.SetActive(false);
+        tieScreen.SetActive(false);
         PlayerTurn();
     }
 
@@ -92,23 +104,54 @@ public class DealerAI : MonoBehaviour
         
         if (playerValue > 21)
         {
+            moneyManager.RoundLose();
+            loseScreen.SetActive(true);
+            loseText.text = "You lost $" + moneyManager.betAmount + ".";
             Debug.Log("Player busts. Dealer wins.");
         }
         else if (dealerValue > 21)
         {
+            moneyManager.RoundWin();
+            winScreen.SetActive(true);
+            winText.text = "You won $" + moneyManager.betAmount + ".";
             Debug.Log("Dealer busts. Player wins.");
         }
         else if (playerValue > dealerValue)
         {
+            moneyManager.RoundWin();
+            winScreen.SetActive(true);
+            winText.text = "You won $" + moneyManager.betAmount + ".";
             Debug.Log("Player wins.");
         }
         else if (dealerValue > playerValue)
         {
+            moneyManager.RoundLose();
+            loseScreen.SetActive(true);
+            loseText.text = "You lost $" + moneyManager.betAmount + ".";
             Debug.Log("Dealer wins.");
         }
         else
         {
+            tieScreen.SetActive(true);
+            tieText.text =  "+" + moneyManager.playerMoney + " was returned to your balance.";
             Debug.Log("It's a tie.");
         }
+    }
+    
+    public void RestartGame()
+    {
+        winScreen.SetActive(false);
+        loseScreen.SetActive(false);
+        tieScreen.SetActive(false);
+        playerHand.playerCards.Clear();
+        playerHand.playerValue = 0;
+        dealerHand.dealerCards.Clear();
+        dealerHand.dealerValue = 0;
+        playerHasStood = false;
+        deck.ShuffleDeck();
+        playerHand.GetPlayerValue();
+        dealerHand.GetDealerValue();
+        playerHand.ClearHands();
+        Start();
     }
 }
