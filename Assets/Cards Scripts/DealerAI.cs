@@ -118,7 +118,6 @@ public class DealerAI : MonoBehaviour
         cardFlip.Play();
         Debug.Log("Player stands.");
         Debug.Log(playerHasStood);
-        
         playerHasStood = true;
         DealerTurn();
     }
