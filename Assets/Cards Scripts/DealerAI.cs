@@ -13,6 +13,8 @@ public class DealerAI : MonoBehaviour
     private bool playerHasStood = false;
     public MoneyManager moneyManager;
     public AudioSource cardFlip;
+    public AudioSource creditsWon;
+    public AudioSource creditsLost;
     
     public GameObject winScreen;
     public TextMeshProUGUI winText;
@@ -24,12 +26,26 @@ public class DealerAI : MonoBehaviour
     public TextMeshProUGUI tieText;
     public TextMeshProUGUI tieTextShadow;
 
+
+    // Raul
+    public GameObject raulWin;
+    public GameObject raulLoss;
+    public GameObject raul21;
+    public GameObject animatedRaul;
+
+
+
+
     void Start()
     {
         Debug.Log("Starting Dealer AI");
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
         tieScreen.SetActive(false);
+        animatedRaul.SetActive(true);
+        raulWin.SetActive(false);
+        raulLoss.SetActive(false);
+        raul21.SetActive(false);
         PlayerTurn();
     }
 
@@ -115,6 +131,9 @@ public class DealerAI : MonoBehaviour
         {
             moneyManager.RoundLose();
             loseScreen.SetActive(true);
+            animatedRaul.SetActive(false);
+            raulLoss.SetActive(true);
+            creditsLost.Play();
             loseText.text = "Lost:" + moneyManager.betAmount + "$";
             loseTextShadow.text = "Lost:" + moneyManager.betAmount + "$";
             Debug.Log("Player busts. Dealer wins.");
@@ -123,6 +142,9 @@ public class DealerAI : MonoBehaviour
         {
             moneyManager.RoundWin();
             winScreen.SetActive(true);
+            animatedRaul.SetActive(false);
+            raulWin.SetActive(true);
+            creditsWon.Play();
             winText.text = "Winnings:" + moneyManager.betAmount + "$";
             winTextShadow.text = "Winnings:" + moneyManager.betAmount + "$";
             Debug.Log("Dealer busts. Player wins.");
@@ -131,6 +153,9 @@ public class DealerAI : MonoBehaviour
         {
             moneyManager.Half21();
             loseScreen.SetActive(true);
+            animatedRaul.SetActive(false);
+            creditsLost.Play();
+            raulLoss.SetActive(true);
             loseText.text = "Lost:" + moneyManager.betAmount + "$";
             loseTextShadow.text = "Lost:" + moneyManager.betAmount + "$";
             Debug.Log("Dealer has 21. Player loses half of their bet.");
@@ -139,6 +164,9 @@ public class DealerAI : MonoBehaviour
         {
             moneyManager.RoundWin();
             winScreen.SetActive(true);
+            animatedRaul.SetActive(false);
+            raulWin.SetActive(true);
+            creditsWon.Play();
             winText.text = "Winnings:" + moneyManager.betAmount + "$";
             winTextShadow.text = "Winnings:" + moneyManager.betAmount + "$";
             Debug.Log("Player wins.");
@@ -147,6 +175,9 @@ public class DealerAI : MonoBehaviour
         {
             moneyManager.RoundLose();
             loseScreen.SetActive(true);
+            animatedRaul.SetActive(false);
+            creditsLost.Play();
+            raulLoss.SetActive(true);
             loseText.text = "Lost:" + moneyManager.betAmount + "$";
             loseTextShadow.text = "Lost:" + moneyManager.betAmount + "$";
             Debug.Log("Dealer wins.");
@@ -154,6 +185,8 @@ public class DealerAI : MonoBehaviour
         else
         {
             tieScreen.SetActive(true);
+            animatedRaul.SetActive(false);
+            raul21.SetActive(true);
             tieText.text =  "Credits Returned:" + moneyManager.betAmount + "$";
             tieTextShadow.text =  "Credits Returned:" + moneyManager.betAmount + "$";
             Debug.Log("It's a tie.");
@@ -165,6 +198,10 @@ public class DealerAI : MonoBehaviour
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
         tieScreen.SetActive(false);
+        raul21.SetActive(false);
+        raulWin.SetActive(false);
+        raulLoss.SetActive(false);
+        animatedRaul.SetActive(true);
         playerHand.playerCards.Clear();
         playerHand.playerValue = 0;
         dealerHand.dealerCards.Clear();
