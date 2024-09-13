@@ -18,6 +18,10 @@ public class MainMenuBehaviour : MonoBehaviour
         
     }
     // StartButton() and QuitButton() are called when the respective buttons are clicked
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     public void StartButton()
     {
         SceneManager.LoadScene("GameScene");
