@@ -62,7 +62,8 @@ public class DealerAI : MonoBehaviour
             {
                 break;
             }
-            CheckWin();
+            
+            Invoke("CheckWin", 1.5f);
         }
 
         Debug.Log("Dealer's hand is " + dealerHand.GetDealerValue() + ". Dealer stays.");
@@ -120,6 +121,13 @@ public class DealerAI : MonoBehaviour
             winScreen.SetActive(true);
             winText.text = "You won $" + moneyManager.betAmount + ".";
             Debug.Log("Dealer busts. Player wins.");
+        }
+        else if (dealerValue == 21)
+        {
+            int halfBet = moneyManager.betAmount / 2;
+            moneyManager.playerMoney -= halfBet;
+            loseScreen.SetActive(true);
+            loseText.text = "You lost $" + moneyManager.betAmount + ".";
         }
         else if (playerValue > dealerValue)
         {
