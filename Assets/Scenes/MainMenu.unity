@@ -290,7 +290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 42, y: -98}
+  m_AnchoredPosition: {x: 38, y: -75}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &66883285
@@ -313,7 +313,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: However, Raul is very sneaky... not towards you but us!!
+  m_text: 'However, Raul is very sneaky... to put it lightly he doesn''t know how
+    to count '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3df37c1a167749340be30b9fd26c38de, type: 2}
   m_sharedMaterial: {fileID: 6738750456318696782, guid: 3df37c1a167749340be30b9fd26c38de, type: 2}
@@ -424,7 +425,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 40, y: -330}
+  m_AnchoredPosition: {x: 40, y: -378}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &83579313
@@ -2524,7 +2525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 47, y: -98}
+  m_AnchoredPosition: {x: 42, y: -76}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &817936215
@@ -2547,7 +2548,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: However, Raul is very sneaky... not towards you but us!!
+  m_text: 'However, Raul is very sneaky... to put it lightly he doesn''t know how
+    to count '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3df37c1a167749340be30b9fd26c38de, type: 2}
   m_sharedMaterial: {fileID: 6738750456318696782, guid: 3df37c1a167749340be30b9fd26c38de, type: 2}
@@ -5042,6 +5044,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: We've caught him slipping the player extra credits when they get unlucky
+    or taking extra when when player loses
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3df37c1a167749340be30b9fd26c38de, type: 2}
   m_sharedMaterial: {fileID: 6738750456318696782, guid: 3df37c1a167749340be30b9fd26c38de, type: 2}
@@ -5152,7 +5155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 46, y: -330}
+  m_AnchoredPosition: {x: 46, y: -378}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1576914513
@@ -6587,6 +6590,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: We've caught him slipping the player extra credits when they get unlucky
+    or taking extra when when player loses
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3df37c1a167749340be30b9fd26c38de, type: 2}
   m_sharedMaterial: {fileID: 6738750456318696782, guid: 3df37c1a167749340be30b9fd26c38de, type: 2}
