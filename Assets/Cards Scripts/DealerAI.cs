@@ -81,6 +81,11 @@ public class DealerAI : MonoBehaviour
             Debug.Log("Player has already stood and cannot draw more cards.");
             return;
         }
+        if (playerHand.GetPlayerValue() >= 21)
+        {
+            Debug.Log("Player has reached 21 or higher and cannot draw more cards.");
+            return;
+        }
 
         cardFlip.Play();
         Sprite card = deck.DrawCard();
