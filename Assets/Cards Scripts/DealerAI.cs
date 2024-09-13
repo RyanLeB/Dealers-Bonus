@@ -16,10 +16,13 @@ public class DealerAI : MonoBehaviour
     
     public GameObject winScreen;
     public TextMeshProUGUI winText;
+    public TextMeshProUGUI winTextShadow;
     public GameObject loseScreen;
     public TextMeshProUGUI loseText;
+    public TextMeshProUGUI loseTextShadow;
     public GameObject tieScreen;
     public TextMeshProUGUI tieText;
+    public TextMeshProUGUI tieTextShadow;
 
     void Start()
     {
@@ -111,34 +114,39 @@ public class DealerAI : MonoBehaviour
         {
             moneyManager.RoundLose();
             loseScreen.SetActive(true);
-            loseText.text = "You lost $" + moneyManager.betAmount + ".";
+            loseText.text = "Lost:" + moneyManager.betAmount + "$";
+            loseTextShadow.text = "Lost:" + moneyManager.betAmount + "$";
             Debug.Log("Player busts. Dealer wins.");
         }
         else if (dealerValue > 21)
         {
             moneyManager.RoundWin();
             winScreen.SetActive(true);
-            winText.text = "You won $" + moneyManager.betAmount + ".";
+            winText.text = "Winnings:" + moneyManager.betAmount + "$";
+            winTextShadow.text = "Winnings:" + moneyManager.betAmount + "$";
             Debug.Log("Dealer busts. Player wins.");
         }
         else if (playerValue > dealerValue)
         {
             moneyManager.RoundWin();
             winScreen.SetActive(true);
-            winText.text = "You won $" + moneyManager.betAmount + ".";
+            winText.text = "Winnings:" + moneyManager.betAmount + "$";
+            winTextShadow.text = "Winnings:" + moneyManager.betAmount + "$";
             Debug.Log("Player wins.");
         }
         else if (dealerValue > playerValue)
         {
             moneyManager.RoundLose();
             loseScreen.SetActive(true);
-            loseText.text = "You lost $" + moneyManager.betAmount + ".";
+            loseText.text = "Lost:" + moneyManager.betAmount + "$";
+            loseTextShadow.text = "Lost:" + moneyManager.betAmount + "$";
             Debug.Log("Dealer wins.");
         }
         else
         {
             tieScreen.SetActive(true);
-            tieText.text =  "+" + moneyManager.playerMoney + " was returned to your balance.";
+            tieText.text =  "Credits Returned:" + moneyManager.playerMoney + "$";
+            tieTextShadow.text =  "Credits Returned:" + moneyManager.playerMoney + "$";
             Debug.Log("It's a tie.");
         }
     }
