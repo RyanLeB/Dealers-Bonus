@@ -38,6 +38,11 @@ public class MoneyManager : MonoBehaviour
         }
     }
     
+    public void Half21()
+    {
+        playerMoney -= betAmount / 2;
+    }
+    
     public void RoundWin()
     {
         playerMoney += betAmount;
