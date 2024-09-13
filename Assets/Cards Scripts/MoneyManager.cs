@@ -15,10 +15,10 @@ public class MoneyManager : MonoBehaviour
     
     public void Update()
     {
-        moneyText.text = $"Money: {playerMoney}";
-        moneyTextShadow.text = $"Money: {playerMoney}";
-        betText.text = $"Bet: {betAmount}";
-        betTextShadow.text = $"Bet: {betAmount}";
+        moneyText.text = $"Credits: {playerMoney}";
+        moneyTextShadow.text = $"Credits: {playerMoney}";
+        betText.text = $"Total Bet: {betAmount}";
+        betTextShadow.text = $"Total Bet: {betAmount}";
     }
     
     public void RestartBet()
