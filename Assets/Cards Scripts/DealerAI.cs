@@ -154,8 +154,8 @@ public class DealerAI : MonoBehaviour
         else
         {
             tieScreen.SetActive(true);
-            tieText.text =  "Credits Returned:" + moneyManager.playerMoney + "$";
-            tieTextShadow.text =  "Credits Returned:" + moneyManager.playerMoney + "$";
+            tieText.text =  "Credits Returned:" + moneyManager.betAmount + "$";
+            tieTextShadow.text =  "Credits Returned:" + moneyManager.betAmount + "$";
             Debug.Log("It's a tie.");
         }
     }
