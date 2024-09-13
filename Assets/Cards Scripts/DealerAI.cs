@@ -131,7 +131,8 @@ public class DealerAI : MonoBehaviour
         {
             moneyManager.Half21();
             loseScreen.SetActive(true);
-            loseText.text = "You lost $" + moneyManager.betAmount / 2 + ".";
+            loseText.text = "Lost:" + moneyManager.betAmount + "$";
+            loseTextShadow.text = "Lost:" + moneyManager.betAmount + "$";
             Debug.Log("Dealer has 21. Player loses half of their bet.");
         }
         else if (playerValue > dealerValue)
